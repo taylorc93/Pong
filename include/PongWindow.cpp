@@ -24,6 +24,9 @@ PongWindow::PongWindow() {
         std::cout << "SDL_Renderer Init Error: " << SDL_GetError() << std::endl;
         exit(EXIT_FAILURE);
     }
+
+    mLeftPaddle = PongPaddle(0, 20);
+    mRightPaddle = PongPaddle(SCREEN_WIDTH - 20, SCREEN_HEIGHT - 100);
 }
 
 PongWindow::~PongWindow() {
@@ -36,10 +39,8 @@ void PongWindow::draw() {
     SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(mRenderer);
 
-    // values are x, y, width, and height
-    SDL_Rect paddleRect = { 0, 20, 20, 100 };
-    SDL_SetRenderDrawColor(mRenderer, 0x0, 0x0, 0x0, 0x0);
-    SDL_RenderFillRect(mRenderer, &paddleRect);
+    mLeftPaddle.draw(mRenderer);
+    mRightPaddle.draw(mRenderer);
 
     SDL_RenderPresent(mRenderer);
 }

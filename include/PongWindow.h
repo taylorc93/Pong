@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <SDL.h>
+#include "PongPaddle.h"
 
 class PongWindow {
 public:
@@ -15,6 +16,9 @@ public:
 private:
     SDL_Window *mWindow;
     SDL_Renderer * mRenderer;
+
+    PongPaddle mLeftPaddle;
+    PongPaddle mRightPaddle;
 };
 
 #endif

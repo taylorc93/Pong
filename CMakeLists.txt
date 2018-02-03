@@ -21,10 +21,7 @@ endif()
 
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
-
-# add the binary tree to the search path for include files
-# so that we will find TutorialConfig.h
-include_directories("${PROJECT_BINARY_DIR}")
+include_directories(include)
 
 add_executable(Pong src/main.cpp)
 target_link_libraries(Pong ${SDL2_LIBRARY})

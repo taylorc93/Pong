@@ -26,6 +26,20 @@ int main(int, char**) {
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
                 quit = true;
+            } else if (e.type == SDL_KEYDOWN) {
+                switch (e.key.keysym.sym) {
+                    case SDLK_UP:
+                        std::cout << "Up" << std::endl;
+                        window.updatePaddle(true);
+                        break;
+                    case SDLK_DOWN:
+                        std::cout << "Down" << std::endl;
+                        window.updatePaddle(false);
+                        break;
+                    default:
+                        std::cout << "Other" << std::endl;
+                        break;
+                }
             }
         }
 

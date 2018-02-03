@@ -12,6 +12,7 @@ public:
     ~PongPaddle();
 
     void draw(SDL_Renderer *renderer);
+    void move(bool up);
 
 private:
     int mX;

@@ -12,6 +12,7 @@ public:
     ~PongWindow();
 
     void draw();
+    void updatePaddle(bool up);
 
 private:
     SDL_Window *mWindow;

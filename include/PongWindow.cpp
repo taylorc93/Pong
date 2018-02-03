@@ -44,3 +44,7 @@ void PongWindow::draw() {
 
     SDL_RenderPresent(mRenderer);
 }
+
+void PongWindow::updatePaddle(bool up) {
+    mLeftPaddle.move(up);
+}

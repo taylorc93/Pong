@@ -27,6 +27,7 @@ PongWindow::PongWindow() {
 
     mLeftPaddle = PongPaddle(0, 20);
     mRightPaddle = PongPaddle(SCREEN_WIDTH - 20, SCREEN_HEIGHT - 100);
+    mBall = PongBall(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 }
 
 PongWindow::~PongWindow() {
@@ -41,6 +42,7 @@ void PongWindow::draw() {
 
     mLeftPaddle.draw(mRenderer);
     mRightPaddle.draw(mRenderer);
+    mBall.draw(mRenderer);
 
     SDL_RenderPresent(mRenderer);
 }

@@ -14,18 +14,15 @@ void cleanup() {
     SDL_Quit();
 }
 
-int main(int, char**) {
-    initSDL();
-
+void loop() {
     PongWindow window = PongWindow();
 
-    bool quit = false;
-    while (!quit) {
+    while (true) {
         SDL_Event e;
 
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
-                quit = true;
+                return;
             } else if (e.type == SDL_KEYDOWN) {
                 switch (e.key.keysym.sym) {
                     case SDLK_UP:
@@ -45,6 +42,12 @@ int main(int, char**) {
 
         window.draw();
     }
+}
+
+int main(int, char**) {
+    initSDL();
+
+    loop();
 
     cleanup();
     return 0;

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <SDL.h>
 #include "PongPaddle.h"
+#include "PongBall.h"
 
 class PongWindow {
 public:
@@ -20,6 +21,7 @@ private:
 
     PongPaddle mLeftPaddle;
     PongPaddle mRightPaddle;
+    PongBall mBall;
 };
 
 #endif

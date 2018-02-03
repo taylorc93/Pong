@@ -28,11 +28,11 @@ void PongPaddle::draw(SDL_Renderer *renderer) {
 void PongPaddle::move(bool up) {
     if (up) {
         if (mY != 0) {
-            mY -= 1;
+            mY -= 2;
         }
     } else {
         if (mY != (SCREEN_HEIGHT - HEIGHT)) {
-            mY += 1;
+            mY += 2;
         }
     }
 }

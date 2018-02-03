@@ -21,8 +21,19 @@ endif()
 
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
+
+# Make the files in `include` includable
 include_directories(include)
 
+file(GLOB_RECURSE UTIL_SOURCES
+    include/*.h
+    include/*.cpp
+)
+
+add_library(Utilities ${UTIL_SOURCES})
 add_executable(Pong src/main.cpp)
+
 target_link_libraries(Pong ${SDL2_LIBRARY})
+target_link_libraries(Pong Utilities)
+
 install(TARGETS Pong RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/bin)
